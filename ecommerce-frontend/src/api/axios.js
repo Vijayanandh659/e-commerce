@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://e-commerce-py29.onrender.com',
 })
 
 // Attach JWT token to every request if present
