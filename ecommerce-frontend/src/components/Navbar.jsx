@@ -16,12 +16,12 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="brand"><span className="brand-mark"></span>Vijay SuperMart</Link>
+      <Link to="/" className="brand"><span className="brand-mark"></span>Vijay Mart's</Link>
       <div className="nav-links">
         <Link to="/">Home</Link>
         {isAuthenticated && <Link to="/orders">My Orders</Link>}
         <Link to="/cart" className="cart-link">
-          <span className="cart-label">Bag</span> {cartCount > 0 && <span className="badge">{cartCount}</span>}
+          <span className="cart-label">Cart</span> {cartCount > 0 && <span className="badge">{cartCount}</span>}
         </Link>
         {isAuthenticated ? (
           <>

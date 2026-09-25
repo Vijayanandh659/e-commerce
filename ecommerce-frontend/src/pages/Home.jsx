@@ -31,11 +31,10 @@ export default function Home() {
     <div className="container">
       <section className="hero">
         <div>
-          <p className="eyebrow">Everyday finds, elevated</p>
-          <h1>Made for the<br /><em>good life.</em></h1>
-          <p className="hero-copy">Thoughtful essentials for your space, your routine, and the moments in between.</p>
+          <p className="eyebrow">A little joy, thoughtfully picked</p>
+          <h1>Find your<br /><em>happy place.</em></h1>
+          <p className="hero-copy">Discover feel-good favorites for everyday living, thoughtful gifting, and everything in between.</p>
         </div>
-        <div className="hero-orb"><span>01</span><strong>Curated<br />for you</strong></div>
       </section>
       <div className="shop-heading">
         <div><p className="eyebrow">The collection</p><h2>Find your next favorite</h2></div>

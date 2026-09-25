@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { formatCurrency } from '../utils/currency'
 
 export default function ProductCard({ product }) {
   return (
@@ -12,7 +13,7 @@ export default function ProductCard({ product }) {
         <h3>{product.name}</h3>
       </Link>
       <div className="product-card-meta">
-        <p className="price">${product.price.toFixed(2)}</p>
+        <p className="price">{formatCurrency(product.price)}</p>
         <p className="stock">{product.stock > 0 ? `${product.stock} available` : 'Sold out'}</p>
       </div>
       <Link to={`/products/${product.id}`} className="btn btn-secondary">View Details</Link>

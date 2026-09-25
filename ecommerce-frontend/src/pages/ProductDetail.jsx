@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import api from '../api/axios'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
+import { formatCurrency } from '../utils/currency'
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -38,7 +39,7 @@ export default function ProductDetail() {
       <img src={product.imageUrl} alt={product.name} className="detail-image" />
       <div className="detail-info">
         <h2>{product.name}</h2>
-        <p className="price">${product.price.toFixed(2)}</p>
+        <p className="price">{formatCurrency(product.price)}</p>
         <p>{product.description}</p>
         <p className="stock">{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</p>
 

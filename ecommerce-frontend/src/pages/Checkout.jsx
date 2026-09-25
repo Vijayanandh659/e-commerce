@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from '../api/axios'
 import { useCart } from '../context/CartContext'
+import { formatCurrency } from '../utils/currency'
 
 export default function Checkout() {
   const { cartItems, cartTotal, fetchCart } = useCart()
@@ -41,12 +42,12 @@ export default function Checkout() {
         {cartItems.map((item) => (
           <div key={item.id} className="order-review-row">
             <span>{item.product?.name} x {item.quantity}</span>
-            <span>${(Number(item.product?.price || 0) * item.quantity).toFixed(2)}</span>
+            <span>{formatCurrency(Number(item.product?.price || 0) * item.quantity)}</span>
           </div>
         ))}
         <div className="order-review-row total">
           <strong>Total</strong>
-          <strong>${cartTotal.toFixed(2)}</strong>
+          <strong>{formatCurrency(cartTotal)}</strong>
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api/axios'
+import { formatCurrency } from '../utils/currency'
 
 export default function Orders() {
   const [orders, setOrders] = useState([])
@@ -43,11 +44,11 @@ export default function Orders() {
           <ul>
             {(order.items || []).map((item) => (
               <li key={item.id}>
-                {item.product?.name} x {item.quantity} — ${(Number(item.price || 0) * item.quantity).toFixed(2)}
+                {item.product?.name} x {item.quantity} — {formatCurrency(Number(item.price || 0) * item.quantity)}
               </li>
             ))}
           </ul>
-          <p className="order-total"><strong>Total: ${Number(order.totalAmount || 0).toFixed(2)}</strong></p>
+          <p className="order-total"><strong>Total: {formatCurrency(order.totalAmount)}</strong></p>
         </div>
       ))}
     </div>

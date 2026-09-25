@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { formatCurrency } from '../utils/currency'
 
 export default function Cart() {
   const { cartItems, fetchCart, updateQuantity, removeFromCart, cartTotal } = useCart()
@@ -28,7 +29,7 @@ export default function Cart() {
             <img src={item.product?.imageUrl} alt={item.product?.name} className="cart-thumb" />
             <div className="cart-row-info">
               <h4>{item.product?.name}</h4>
-              <p>${Number(item.product?.price || 0).toFixed(2)} each</p>
+              <p>{formatCurrency(item.product?.price)} each</p>
             </div>
             <input
               type="number"
@@ -37,14 +38,14 @@ export default function Cart() {
               value={item.quantity}
               onChange={(e) => updateQuantity(item.id, Number(e.target.value))}
             />
-            <p className="line-total">${(Number(item.product?.price || 0) * item.quantity).toFixed(2)}</p>
+            <p className="line-total">{formatCurrency(Number(item.product?.price || 0) * item.quantity)}</p>
             <button className="link-btn danger" onClick={() => removeFromCart(item.id)}>Remove</button>
           </div>
         ))}
       </div>
 
       <div className="cart-summary">
-        <h3>Total: ${cartTotal.toFixed(2)}</h3>
+        <h3>Total: {formatCurrency(cartTotal)}</h3>
         <button className="btn btn-primary" onClick={() => navigate('/checkout')}>Proceed to Checkout</button>
       </div>
     </div>
